@@ -143,7 +143,7 @@ pub struct AccountStore<'a, T: System> {
 
 /// Account field of the `System` module.
 #[derive(Clone, Debug, Eq, PartialEq, Store, Encode)]
-pub struct NumberStore<T: System> {
+pub struct BlockNumberStore<T: System> {
     #[store(returns = T::BlockNumber)]
     /// Account to retrieve the `AccountInfo<T>` for.
     pub _runtime: PhantomData<T>,
