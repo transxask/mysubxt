@@ -141,6 +141,14 @@ pub struct AccountStore<'a, T: System> {
     pub account_id: &'a T::AccountId,
 }
 
+/// Account field of the `System` module.
+#[derive(Clone, Debug, Eq, PartialEq, Store, Encode)]
+pub struct NumberStore<T: System> {
+    #[store(returns = T::BlockNumber)]
+    /// Account to retrieve the `AccountInfo<T>` for.
+    pub _runtime: PhantomData<T>,
+}
+
 /// Arguments for updating the runtime code
 #[derive(Clone, Debug, Eq, PartialEq, Call, Encode)]
 pub struct SetCodeCall<'a, T: System> {
